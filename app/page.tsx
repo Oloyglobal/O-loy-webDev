@@ -217,15 +217,15 @@ export default function Home() {
               </div>
 
               <h1 className="heading-xl font-display">
-                We Build Websites That{' '}
+              We Build High-Impact Websites That{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-purple-400">
                   Grow Businesses
                 </span>
               </h1>
 
               <p className="text-xl text-gray-300 max-w-2xl">
-                Professional web development for businesses in Lagos, Abuja, and across Nigeria. 
-                Fast, SEO-optimized websites that convert visitors into customers.
+              Professional web development across Nigeria.
+              Fast, SEO-optimized websites that drive real customer conversions.
               </p>
 
               <div className="flex flex-wrap gap-4">
