@@ -73,8 +73,8 @@ function HeroSwiper() {
       alt: 'Web Development'
     },
     {
-      type: 'image',
-      url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80',
+      type: 'video',
+      url: 'https://res.cloudinary.com/dlb3doese/video/upload/v1748011669/5240980-uhd_3840_2160_30fps_bjnzle.mp4',
       alt: 'Modern Development'
     },
     {
@@ -98,7 +98,7 @@ function HeroSwiper() {
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentSlide ? 'opacity-60' : 'opacity-0'
+            index === currentSlide ? 'opacity-80' : 'opacity-0'
           }`}
         >
           {slide.type === 'video' ? (
