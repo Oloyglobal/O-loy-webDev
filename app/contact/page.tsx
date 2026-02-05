@@ -173,8 +173,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1 text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+234 806 XXX XXXX</p>
-                    <p className="text-gray-600">+234 814 XXX XXXX</p>
+                    <p className="text-gray-600">+234 8069336270</p>
+                    <p className="text-gray-600">+234 8145987036</p>
                   </div>
                 </div>
 
@@ -184,7 +184,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold mb-1 text-gray-900">Email</h3>
-                    <p className="text-gray-600">info@oloyglobal.com</p>
+                    <p className="text-gray-600">oloyedeolaniyi223@gmail.com</p>
                     <p className="text-gray-600">support@oloyglobal.com</p>
                   </div>
                 </div>
