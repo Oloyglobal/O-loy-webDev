@@ -1,10 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaArrowRight } from 'react-icons/fa'
+import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaArrowRight, FaArrowUp } from 'react-icons/fa'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
   return (
     <footer className="relative bg-slate-950 text-white overflow-hidden">
@@ -162,16 +169,25 @@ export default function Footer() {
               </Link>
               <span className="text-gray-700">•</span>
               <button 
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                onClick={scrollToTop}
                 className="text-gray-500 hover:text-orange-500 transition-colors flex items-center space-x-1 group"
               >
                 <span>Top</span>
-                <span className="transform group-hover:-translate-y-0.5 transition-transform">↑</span>
+                <FaArrowUp className="w-3 h-3 transform group-hover:-translate-y-0.5 transition-transform" />
               </button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Scroll to Top Button - Fixed Position */}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 left-6 z-40 w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 text-white rounded-full shadow-2xl hover:shadow-orange-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
+        aria-label="Scroll to top"
+      >
+        <FaArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+      </button>
 
       {/* Decorative Bottom Line */}
       <div className="h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
