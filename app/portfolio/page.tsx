@@ -1,952 +1,317 @@
-// 'use client'
-
-// import Link from 'next/link'
-// import { useState } from 'react'
-// import { FaArrowRight, FaExternalLinkAlt, FaStar, FaAward, FaRocket } from 'react-icons/fa'
-
-// export default function Portfolio() {
-//   const [activeFilter, setActiveFilter] = useState('All')
-
-//   const projects = [
-//     {
-//       title: 'TechStart Corporate Hub',
-//       category: 'Web Development',
-//       client: 'TechStart Lagos',
-//       description: 'Modern corporate website with CMS integration, dynamic content management, and advanced SEO optimization.',
-//       tags: ['Next.js', 'React', 'CMS', 'SEO'],
-//       gradient: 'from-blue-500 to-cyan-500',
-//       metrics: { conversion: '+250%', speed: '95/100', traffic: '+180%' },
-//       year: '2024'
-//     },
-//     {
-//       title: 'Fashion Hub E-Store',
-//       category: 'E-commerce',
-//       client: 'Fashion Hub Nigeria',
-//       description: 'Full-featured online store with Paystack integration, comprehensive inventory system, and real-time analytics.',
-//       tags: ['E-commerce', 'Paystack', 'React', 'Analytics'],
-//       gradient: 'from-pink-500 to-rose-500',
-//       metrics: { revenue: '+300%', orders: '1000+', rating: '4.9/5' },
-//       year: '2024'
-//     },
-//     {
-//       title: 'PropFinder Platform',
-//       category: 'Web Application',
-//       client: 'Abuja Real Estate',
-//       description: 'Property listing platform with advanced search, intelligent filters, interactive maps, and user dashboard.',
-//       tags: ['Next.js', 'TypeScript', 'Maps API', 'Database'],
-//       gradient: 'from-green-500 to-emerald-500',
-//       metrics: { listings: '5000+', users: '2500+', searches: '50K/mo' },
-//       year: '2024'
-//     },
-//     {
-//       title: 'Taste of Lagos',
-//       category: 'Web Development',
-//       client: 'Lagos Restaurant Group',
-//       description: 'Beautiful restaurant website with online ordering, table reservation system, and menu management.',
-//       tags: ['React', 'SEO', 'Mobile-First', 'Booking'],
-//       gradient: 'from-orange-500 to-amber-500',
-//       metrics: { bookings: '+400%', orders: '500/mo', rating: '5/5' },
-//       year: '2023'
-//     },
-//     {
-//       title: 'HealthCare Connect',
-//       category: 'Web Application',
-//       client: 'Medical Center PH',
-//       description: 'Patient management system with appointment booking, medical records, telemedicine integration.',
-//       tags: ['Next.js', 'Dashboard', 'Security', 'HIPAA'],
-//       gradient: 'from-teal-500 to-cyan-500',
-//       metrics: { patients: '3000+', appointments: '10K+', satisfaction: '98%' },
-//       year: '2024'
-//     },
-//     {
-//       title: 'EduLearn Academy',
-//       category: 'E-learning',
-//       client: 'EduLearn Nigeria',
-//       description: 'Online learning platform with course management, video streaming, student progress tracking.',
-//       tags: ['React', 'Video', 'Dashboard', 'Payments'],
-//       gradient: 'from-indigo-500 to-purple-500',
-//       metrics: { students: '8000+', courses: '150+', completion: '85%' },
-//       year: '2023'
-//     },
-//     {
-//       title: 'Metro Fashion Store',
-//       category: 'E-commerce',
-//       client: 'Metro Fashion Ltd',
-//       description: 'Stylish online fashion store with size guides, AR try-on, and multiple payment integrations.',
-//       tags: ['E-commerce', 'Flutterwave', 'AR', 'Mobile'],
-//       gradient: 'from-purple-500 to-pink-500',
-//       metrics: { sales: '₦50M+', products: '2000+', retention: '75%' },
-//       year: '2024'
-//     },
-//     {
-//       title: 'BizMetrics Pro',
-//       category: 'Web Application',
-//       client: 'Nigerian SMEs',
-//       description: 'Analytics dashboard with real-time data visualization, reporting tools, and business intelligence.',
-//       tags: ['React', 'Charts', 'Analytics', 'API'],
-//       gradient: 'from-yellow-500 to-orange-500',
-//       metrics: { companies: '500+', reports: '100K+', accuracy: '99%' },
-//       year: '2023'
-//     },
-//     {
-//       title: 'Wanderlust Travels',
-//       category: 'Web Development',
-//       client: 'Wanderlust Agency',
-//       description: 'Travel booking website with destination guides, package management, and payment gateway.',
-//       tags: ['Next.js', 'Booking', 'SEO', 'Mobile'],
-//       gradient: 'from-sky-500 to-blue-500',
-//       metrics: { bookings: '5000+', destinations: '100+', revenue: '+250%' },
-//       year: '2024'
-//     },
-//   ]
-
-//   const categories = ['All', 'Web Development', 'E-commerce', 'Web Application', 'E-learning']
-
-//   const filteredProjects = activeFilter === 'All' 
-//     ? projects 
-//     : projects.filter(p => p.category === activeFilter)
-
-//   return (
-//     <>
-//       {/* Hero Section - Premium Design */}
-//       <section className="relative pt-32 pb-24 bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white overflow-hidden">
-//         {/* Animated background elements */}
-//         <div className="absolute inset-0 opacity-20">
-//           <div className="absolute w-96 h-96 bg-orange-500 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
-//           <div className="absolute w-96 h-96 bg-amber-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
-//         </div>
-
-//         {/* Animated grid overlay */}
-//         <div className="absolute inset-0 opacity-10" style={{
-//           backgroundImage: 'linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px)',
-//           backgroundSize: '50px 50px'
-//         }}></div>
-        
-//         <div className="container-custom relative z-10">
-//           <div className="max-w-4xl mx-auto text-center">
-//             {/* Badge */}
-//             <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-5 py-3 rounded-full border border-orange-500/30 mb-8">
-//               <FaAward className="text-orange-400" />
-//               <span className="text-sm font-semibold tracking-wide">100+ Successful Projects</span>
-//             </div>
-
-//             {/* Main Heading */}
-//             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-//               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Award-Winning</span> Work
-//             </h1>
-            
-//             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-//               Real projects. Real results. See how we've transformed businesses across Nigeria with cutting-edge web solutions.
-//             </p>
-
-//             {/* Stats Quick View */}
-//             <div className="grid grid-cols-3 gap-8 mt-12 max-w-2xl mx-auto">
-//               <div>
-//                 <div className="text-4xl font-black text-orange-400 mb-2">100+</div>
-//                 <div className="text-sm text-gray-300">Projects</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-black text-orange-400 mb-2">50+</div>
-//                 <div className="text-sm text-gray-300">Clients</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-black text-orange-400 mb-2">98%</div>
-//                 <div className="text-sm text-gray-300">Success Rate</div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Filter Section - Modern Pills */}
-//       <section className="sticky top-0 z-40 py-6 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-sm">
-//         <div className="container-custom">
-//           <div className="flex flex-wrap justify-center gap-3">
-//             {categories.map((category) => (
-//               <button
-//                 key={category}
-//                 onClick={() => setActiveFilter(category)}
-//                 className={`px-6 py-3 rounded-full font-bold transition-all duration-300 ${
-//                   activeFilter === category
-//                     ? 'bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-lg shadow-orange-500/30 scale-105'
-//                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
-//                 }`}
-//               >
-//                 {category}
-//               </button>
-//             ))}
-//           </div>
-          
-//           {/* Results Count */}
-//           <div className="text-center mt-4">
-//             <span className="text-sm text-gray-600">
-//               Showing <strong className="text-orange-600">{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
-//             </span>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Portfolio Grid - Advanced Cards */}
-//       <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
-//         <div className="container-custom">
-//           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {filteredProjects.map((project, index) => (
-//               <div
-//                 key={index}
-//                 className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100"
-//                 style={{ animationDelay: `${index * 100}ms` }}
-//               >
-//                 {/* Project Image/Gradient */}
-//                 <div className={`relative h-64 bg-gradient-to-br ${project.gradient} flex items-center justify-center overflow-hidden`}>
-//                   {/* Overlay on hover */}
-//                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-//                     <div className="text-white text-center space-y-3">
-//                       <FaExternalLinkAlt className="w-12 h-12 mx-auto" />
-//                       <div className="text-sm font-semibold">View Case Study</div>
-//                     </div>
-//                   </div>
-                  
-//                   {/* Project Icon */}
-//                   <div className="text-white text-7xl group-hover:scale-125 transition-transform duration-500">
-//                     🚀
-//                   </div>
-
-//                   {/* Year Badge */}
-//                   <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold">
-//                     {project.year}
-//                   </div>
-//                 </div>
-
-//                 {/* Project Details */}
-//                 <div className="p-6">
-//                   {/* Category & Client */}
-//                   <div className="flex items-center justify-between mb-3">
-//                     <span className="text-sm text-orange-600 font-bold uppercase tracking-wide">
-//                       {project.category}
-//                     </span>
-//                     <span className="text-xs text-gray-500">
-//                       {project.client}
-//                     </span>
-//                   </div>
-
-//                   {/* Title */}
-//                   <h3 className="text-2xl font-black mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
-//                     {project.title}
-//                   </h3>
-                  
-//                   {/* Description */}
-//                   <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
-//                     {project.description}
-//                   </p>
-
-//                   {/* Metrics - Key Results */}
-//                   <div className="grid grid-cols-3 gap-2 mb-4 p-4 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-100">
-//                     {Object.entries(project.metrics).map(([key, value], idx) => (
-//                       <div key={idx} className="text-center">
-//                         <div className="text-lg font-black text-orange-600">{value}</div>
-//                         <div className="text-xs text-gray-600 capitalize">{key}</div>
-//                       </div>
-//                     ))}
-//                   </div>
-
-//                   {/* Tags */}
-//                   <div className="flex flex-wrap gap-2 mb-5">
-//                     {project.tags.map((tag, tagIndex) => (
-//                       <span
-//                         key={tagIndex}
-//                         className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-semibold hover:bg-orange-100 hover:text-orange-700 transition-colors"
-//                       >
-//                         {tag}
-//                       </span>
-//                     ))}
-//                   </div>
-
-//                   {/* CTA Button */}
-//                   <button className="w-full bg-gradient-to-r from-orange-500 to-amber-600 text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 group/btn">
-//                     <span>View Full Case Study</span>
-//                     <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
-//                   </button>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Stats Section - Premium Design */}
-//       <section className="section-padding bg-white relative overflow-hidden">
-//         {/* Background decoration */}
-//         <div className="absolute top-0 right-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl"></div>
-//         <div className="absolute bottom-0 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl"></div>
-
-//         <div className="container-custom relative z-10">
-//           {/* Section Header */}
-//           <div className="text-center max-w-3xl mx-auto mb-16">
-//             <div className="inline-flex items-center space-x-2 bg-orange-100 px-4 py-2 rounded-full mb-6">
-//               <FaStar className="text-orange-600" />
-//               <span className="text-orange-700 font-bold uppercase tracking-wider text-sm">Our Track Record</span>
-//             </div>
-//             <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-//               Numbers That <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">Speak Volumes</span>
-//             </h2>
-//           </div>
-
-//           {/* Stats Grid */}
-//           <div className="grid md:grid-cols-4 gap-8">
-//             {[
-//               { value: '100+', label: 'Projects Completed', icon: '🎯', color: 'from-orange-500 to-amber-600' },
-//               { value: '50+', label: 'Happy Clients', icon: '😊', color: 'from-orange-500 to-amber-600' },
-//               { value: '98%', label: 'Client Satisfaction', icon: '⭐', color: 'from-orange-500 to-amber-600' },
-//               { value: '5+', label: 'Years Experience', icon: '🏆', color: 'from-orange-500 to-amber-600' },
-//             ].map((stat, index) => (
-//               <div 
-//                 key={index}
-//                 className="text-center p-8 bg-gradient-to-br from-orange-50 to-amber-50 rounded-3xl border border-orange-200 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 group"
-//               >
-//                 <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">
-//                   {stat.icon}
-//                 </div>
-//                 <div className={`text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r ${stat.color} mb-3`}>
-//                   {stat.value}
-//                 </div>
-//                 <div className="text-gray-700 font-semibold text-lg">{stat.label}</div>
-//               </div>
-//             ))}
-//           </div>
-
-//           {/* Additional Stats Row */}
-//           <div className="grid md:grid-cols-3 gap-8 mt-12">
-//             {[
-//               { value: '₦500M+', label: 'Revenue Generated for Clients', icon: '💰' },
-//               { value: '24/7', label: 'Support & Maintenance', icon: '🛠️' },
-//               { value: '300%', label: 'Average Growth Rate', icon: '📈' },
-//             ].map((stat, index) => (
-//               <div 
-//                 key={index}
-//                 className="text-center p-6 bg-white rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-lg transition-all duration-300"
-//               >
-//                 <div className="text-4xl mb-3">{stat.icon}</div>
-//                 <div className="text-3xl font-black text-orange-600 mb-2">{stat.value}</div>
-//                 <div className="text-gray-600 font-medium">{stat.label}</div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Industries We Serve */}
-//       <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
-//         <div className="container-custom">
-//           <div className="text-center max-w-3xl mx-auto mb-16">
-//             <h2 className="text-4xl md:text-5xl font-black mb-6 text-gray-900">
-//               Industries We <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-600">Dominate</span>
-//             </h2>
-//             <p className="text-xl text-gray-600">
-//               Our expertise spans across multiple sectors, delivering tailored solutions for every industry.
-//             </p>
-//           </div>
-
-//           <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
-//             {[
-//               { name: 'E-commerce', icon: '🛒', count: '25+' },
-//               { name: 'Healthcare', icon: '🏥', count: '15+' },
-//               { name: 'Education', icon: '📚', count: '20+' },
-//               { name: 'Real Estate', icon: '🏘️', count: '18+' },
-//               { name: 'Hospitality', icon: '🍽️', count: '12+' },
-//               { name: 'Finance', icon: '💳', count: '10+' },
-//               { name: 'Travel', icon: '✈️', count: '8+' },
-//               { name: 'Fashion', icon: '👗', count: '15+' },
-//               { name: 'Technology', icon: '💻', count: '30+' },
-//               { name: 'NGO/NPO', icon: '🤝', count: '12+' },
-//             ].map((industry, index) => (
-//               <div 
-//                 key={index}
-//                 className="text-center p-6 bg-white rounded-2xl border border-gray-200 hover:border-orange-300 hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group"
-//               >
-//                 <div className="text-5xl mb-3 group-hover:scale-125 transition-transform duration-300">
-//                   {industry.icon}
-//                 </div>
-//                 <div className="font-bold text-gray-900 mb-1">{industry.name}</div>
-//                 <div className="text-sm text-orange-600 font-semibold">{industry.count} projects</div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Final CTA Section */}
-//       <section className="section-padding bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white relative overflow-hidden">
-//         {/* Animated background elements */}
-//         <div className="absolute inset-0 opacity-20">
-//           <div className="absolute w-96 h-96 bg-orange-500 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
-//           <div className="absolute w-96 h-96 bg-amber-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
-//         </div>
-        
-//         <div className="container-custom text-center relative z-10">
-//           <div className="max-w-4xl mx-auto">
-//             <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-5 py-3 rounded-full border border-orange-500/30 mb-8">
-//               <FaRocket className="text-orange-400" />
-//               <span className="text-sm font-semibold tracking-wide">Ready to Join Our Success Stories?</span>
-//             </div>
-
-//             <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-//               Want to See Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Project Here?</span>
-//             </h2>
-            
-//             <p className="text-2xl text-gray-200 mb-12 leading-relaxed">
-//               Let's create something extraordinary together. Get started with a free consultation and custom quote today.
-//             </p>
-            
-//             <div className="flex flex-wrap justify-center gap-6">
-//               <Link 
-//                 href="/contact" 
-//                 className="group px-10 py-5 bg-white text-orange-600 font-black text-lg rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-110 transition-all duration-300"
-//               >
-//                 <span className="flex items-center space-x-3">
-//                   <span>Start Your Project</span>
-//                   <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-//                 </span>
-//               </Link>
-              
-//               <Link 
-//                 href="/services" 
-//                 className="px-10 py-5 bg-white/10 backdrop-blur-md text-white font-black text-lg rounded-xl border-2 border-white/30 hover:bg-white/20 hover:border-white hover:scale-110 transition-all duration-300"
-//               >
-//                 View Our Services
-//               </Link>
-//             </div>
-
-//             {/* Trust Indicators */}
-//             <div className="grid md:grid-cols-3 gap-8 mt-16 pt-12 border-t border-white/20">
-//               <div className="text-center">
-//                 <div className="text-4xl font-black text-orange-400 mb-2">Free</div>
-//                 <div className="text-gray-300">Consultation & Quote</div>
-//               </div>
-//               <div className="text-center">
-//                 <div className="text-4xl font-black text-orange-400 mb-2">48hrs</div>
-//                 <div className="text-gray-300">Response Time</div>
-//               </div>
-//               <div className="text-center">
-//                 <div className="text-4xl font-black text-orange-400 mb-2">100%</div>
-//                 <div className="text-gray-300">Satisfaction Guaranteed</div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   )
-// }
-
-
-// 'use client'
-
-// import Link from 'next/link'
-// import Image from 'next/image'
-// import { useState } from 'react'
-// import { FaArrowRight, FaExternalLinkAlt, FaStar, FaAward, FaRocket } from 'react-icons/fa'
-
-// export default function Portfolio() {
-//   const [activeFilter, setActiveFilter] = useState('All')
-
-//   // 👇 ADD YOUR REAL PROJECTS HERE
-//   const projects = [
-//     {
-//       title: 'Your Project Name',
-//       category: 'Web Development',
-//       client: 'Client Name',
-//       description: 'Brief description of what you built and what problems you solved.',
-//       tags: ['Next.js', 'React', 'Tailwind'],
-//       image: '/projects/project1.jpg', // 👈 ADD IMAGE PATH
-//       link: 'https://yourproject.com', // 👈 ADD LIVE LINK
-//       metrics: { conversion: '+250%', speed: '95/100', traffic: '+180%' },
-//       year: '2024'
-//     },
-//     {
-//       title: 'E-commerce Store',
-//       category: 'E-commerce',
-//       client: 'Fashion Brand',
-//       description: 'Full-featured online store with payment integration.',
-//       tags: ['E-commerce', 'Paystack', 'React'],
-//       image: '/projects/project2.jpg', // 👈 ADD IMAGE PATH
-//       link: 'https://store-example.com', // 👈 ADD LIVE LINK
-//       metrics: { revenue: '+300%', orders: '1000+', rating: '4.9/5' },
-//       year: '2024'
-//     },
-//     // Add more projects...
-//   ]
-
-//   const categories = ['All', 'Web Development', 'E-commerce', 'Web Application', 'E-learning']
-
-//   const filteredProjects = activeFilter === 'All' 
-//     ? projects 
-//     : projects.filter(p => p.category === activeFilter)
-
-//   return (
-//     <>
-//       {/* Hero Section */}
-//       <section className="relative pt-32 pb-24 bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white overflow-hidden">
-//         <div className="absolute inset-0 opacity-20">
-//           <div className="absolute w-96 h-96 bg-orange-500 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
-//           <div className="absolute w-96 h-96 bg-amber-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
-//         </div>
-
-//         <div className="absolute inset-0 opacity-10" style={{
-//           backgroundImage: 'linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px)',
-//           backgroundSize: '50px 50px'
-//         }}></div>
-        
-//         <div className="container-custom relative z-10">
-//           <div className="max-w-4xl mx-auto text-center">
-//             <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-5 py-3 rounded-full border border-orange-500/30 mb-8">
-//               <FaAward className="text-orange-400" />
-//               <span className="text-sm font-semibold tracking-wide">100+ Successful Projects</span>
-//             </div>
-
-//             <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-//               Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Award-Winning</span> Work
-//             </h1>
-            
-//             <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
-//               Real projects. Real results. See how we've transformed businesses across Nigeria with cutting-edge web solutions.
-//             </p>
-
-//             <div className="grid grid-cols-3 gap-8 mt-12 max-w-2xl mx-auto">
-//               <div>
-//                 <div className="text-4xl font-black text-orange-400 mb-2">100+</div>
-//                 <div className="text-sm text-gray-300">Projects</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-black text-orange-400 mb-2">50+</div>
-//                 <div className="text-sm text-gray-300">Clients</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-black text-orange-400 mb-2">98%</div>
-//                 <div className="text-sm text-gray-300">Success Rate</div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Filter Section */}
-//       <section className="sticky top-0 z-40 py-6 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-sm">
-//         <div className="container-custom">
-//           <div className="flex flex-wrap justify-center gap-3">
-//             {categories.map((category) => (
-//               <button
-//                 key={category}
-//                 onClick={() => setActiveFilter(category)}
-//                 className={`px-6 py-3 rounded-full font-bold transition-all duration-300 ${
-//                   activeFilter === category
-//                     ? 'bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-lg shadow-orange-500/30 scale-105'
-//                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
-//                 }`}
-//               >
-//                 {category}
-//               </button>
-//             ))}
-//           </div>
-          
-//           <div className="text-center mt-4">
-//             <span className="text-sm text-gray-600">
-//               Showing <strong className="text-orange-600">{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
-//             </span>
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Portfolio Grid with REAL IMAGES */}
-//       <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
-//         <div className="container-custom">
-//           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {filteredProjects.map((project, index) => (
-//               <div
-//                 key={index}
-//                 className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100"
-//               >
-//                 {/* 👇 PROJECT IMAGE (Clickable) */}
-//                 <a 
-//                   href={project.link} 
-//                   target="_blank" 
-//                   rel="noopener noreferrer"
-//                   className="relative block h-64 overflow-hidden bg-gray-200"
-//                 >
-//                   {/* Real Image */}
-//                   <Image
-//                     src={project.image}
-//                     alt={project.title}
-//                     fill
-//                     className="object-cover group-hover:scale-110 transition-transform duration-500"
-//                   />
-                  
-//                   {/* Overlay on hover */}
-//                   <div className="absolute inset-0 bg-gradient-to-br from-orange-500/80 to-amber-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-//                     <div className="text-white text-center space-y-3">
-//                       <FaExternalLinkAlt className="w-12 h-12 mx-auto" />
-//                       <div className="text-sm font-semibold">Visit Live Site</div>
-//                     </div>
-//                   </div>
-
-//                   {/* Year Badge */}
-//                   <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold">
-//                     {project.year}
-//                   </div>
-//                 </a>
-
-//                 {/* Project Details */}
-//                 <div className="p-6">
-//                   <div className="flex items-center justify-between mb-3">
-//                     <span className="text-sm text-orange-600 font-bold uppercase tracking-wide">
-//                       {project.category}
-//                     </span>
-//                     <span className="text-xs text-gray-500">
-//                       {project.client}
-//                     </span>
-//                   </div>
-
-//                   <h3 className="text-2xl font-black mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
-//                     {project.title}
-//                   </h3>
-                  
-//                   <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
-//                     {project.description}
-//                   </p>
-
-//                   {/* Metrics */}
-//                   <div className="grid grid-cols-3 gap-2 mb-4 p-4 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-100">
-//                     {Object.entries(project.metrics).map(([key, value], idx) => (
-//                       <div key={idx} className="text-center">
-//                         <div className="text-lg font-black text-orange-600">{value}</div>
-//                         <div className="text-xs text-gray-600 capitalize">{key}</div>
-//                       </div>
-//                     ))}
-//                   </div>
-
-//                   {/* Tags */}
-//                   <div className="flex flex-wrap gap-2 mb-5">
-//                     {project.tags.map((tag, tagIndex) => (
-//                       <span
-//                         key={tagIndex}
-//                         className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-semibold hover:bg-orange-100 hover:text-orange-700 transition-colors"
-//                       >
-//                         {tag}
-//                       </span>
-//                     ))}
-//                   </div>
-
-//                   {/* CTA Button */}
-//                   <a
-//                     href={project.link}
-//                     target="_blank"
-//                     rel="noopener noreferrer"
-//                     className="block w-full bg-gradient-to-r from-orange-500 to-amber-600 text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center group/btn"
-//                   >
-//                     <span className="flex items-center justify-center space-x-2">
-//                       <span>Visit Live Site</span>
-//                       <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
-//                     </span>
-//                   </a>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       </section>
-
-//       {/* Rest of your sections... */}
-//       <section className="section-padding bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white relative overflow-hidden">
-//         <div className="absolute inset-0 opacity-20">
-//           <div className="absolute w-96 h-96 bg-orange-500 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
-//           <div className="absolute w-96 h-96 bg-amber-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
-//         </div>
-        
-//         <div className="container-custom text-center relative z-10">
-//           <div className="max-w-4xl mx-auto">
-//             <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-5 py-3 rounded-full border border-orange-500/30 mb-8">
-//               <FaRocket className="text-orange-400" />
-//               <span className="text-sm font-semibold tracking-wide">Ready to Join Our Success Stories?</span>
-//             </div>
-
-//             <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-//               Want to See Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Project Here?</span>
-//             </h2>
-            
-//             <p className="text-2xl text-gray-200 mb-12 leading-relaxed">
-//               Let's create something extraordinary together. Get started with a free consultation and custom quote today.
-//             </p>
-            
-//             <div className="flex flex-wrap justify-center gap-6">
-//               <Link 
-//                 href="/contact" 
-//                 className="group px-10 py-5 bg-white text-orange-600 font-black text-lg rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-110 transition-all duration-300"
-//               >
-//                 <span className="flex items-center space-x-3">
-//                   <span>Start Your Project</span>
-//                   <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-//                 </span>
-//               </Link>
-              
-//               <Link 
-//                 href="/services" 
-//                 className="px-10 py-5 bg-white/10 backdrop-blur-md text-white font-black text-lg rounded-xl border-2 border-white/30 hover:bg-white/20 hover:border-white hover:scale-110 transition-all duration-300"
-//               >
-//                 View Our Services
-//               </Link>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   )
-// }
-
-
-
-
 'use client'
 
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
-import { FaArrowRight, FaExternalLinkAlt, FaStar, FaAward, FaRocket } from 'react-icons/fa'
+import { FaArrowRight, FaExternalLinkAlt, FaAward, FaRocket } from 'react-icons/fa'
+
+// ─── Design tokens — identical to the rest of the site ───────────────────────
+const C = {
+  bg0:    '#05030D',
+  bg1:    '#0C0720',
+  bg2:    '#110A2A',
+  bg3:    '#F7F4F0',
+  txtPri: '#EAE6F0',
+  txtSec: '#9E96B0',
+  txtDim: '#5C5470',
+  ltxPri: '#1C1228',
+  ltxSec: '#6B5F7A',
+  gold:   '#C9A84C',
+  goldLt: '#E8D5A3',
+  border: 'rgba(201,168,76,0.15)',
+  glowV:  'rgba(88,28,220,0.14)',
+  glowG:  'rgba(201,168,76,0.10)',
+}
+// ─────────────────────────────────────────────────────────────────────────────
 
 export default function Portfolio() {
   const [activeFilter, setActiveFilter] = useState('All')
 
-  // 👇 ADD YOUR REAL PROJECTS HERE
   const projects = [
     {
-      title: 'our ofiicial website',
+      title: 'Our Official Website',
       category: 'Web Development',
-      client: 'Client Name',
-      description: 'the official website for O-Loy-Global Company .',
+      client: "O'LOY GLOBAL",
+      description: "The official website for O'LOY GLOBAL — showcasing services, portfolio, and brand identity with a modern, high-performance stack.",
       tags: ['Next.js', 'React', 'Tailwind'],
-      image: '/projects/OloyGlobalcopy.png', // 👈 ADD IMAGE PATH
-      link: 'https://o-loy-web-dev.vercel.app/', // 👈 ADD LIVE LINK
+      image: '/projects/OloyGlobalcopy.png',
+      link: 'https://o-loy-web-dev.vercel.app/',
       metrics: { conversion: '+250%', speed: '95/100', traffic: '+180%' },
-      year: '2025'
+      year: '2025',
     },
     {
-      title: 'consulting firm website',
-      category: 'consulting firm',
-      client: 'Consultant Name',
-      description: 'Full-featured online store with payment integration.',
+      title: 'Consulting Firm Website',
+      category: 'Web Development',
+      client: 'Run Alpha',
+      description: 'Full-featured consulting platform with service showcase, client portal, and lead generation optimisation.',
       tags: ['E-commerce', 'Paystack', 'React'],
-      image: '/projects/alphaa.png', // 👈 ADD IMAGE PATH
-      link: 'https://www.runalpha.co/', // 👈 ADD LIVE LINK
+      image: '/projects/alphaa.png',
+      link: 'https://www.runalpha.co/',
       metrics: { revenue: '+300%', orders: '1000+', rating: '4.9/5' },
-      year: '2024'
+      year: '2024',
     },
-
-    
     {
-      title: 'technology company website',
-      category: 'Classic Information Technology',
+      title: 'Technology Company Website',
+      category: 'Web Development',
       client: 'Classic Info',
-      description: 'This initiative is designed to provide a dynamic learning environment for individuals looking to advance their skills in technology. The platform offers comprehensive courses in coding, cybersecurity, AI, and IT, catering to both beginners and experienced professionals',
-      tags: ['NextJs', 'React'],
-      image: '/projects/pexels-minan1398-853168.jpg', // 👈 ADD IMAGE PATH
-      link: 'https://classicinfo.vercel.app', // 👈 ADD LIVE LINK
+      description: 'A dynamic learning environment for individuals advancing skills in technology — courses in coding, cybersecurity, AI, and IT.',
+      tags: ['Next.js', 'React'],
+      image: '/projects/pexels-minan1398-853168.jpg',
+      link: 'https://classicinfo.vercel.app',
       metrics: { revenue: '+300%', orders: '1000+', rating: '4.9/5' },
-      year: '2025'
+      year: '2025',
     },
-
     {
-      title: 'stitches company website',
-      category: 'Tomi Stitches"',
-      client: 'Tomistitches',
-      description: 'This stitches company website is a vibrant online platform that showcases the artistry and craftsmanship of Tomi Stitches. With a sleek and modern design, the website features a stunning portfolio of their unique stitchwork, ranging from intricate embroidery to bold textile art. Visitors can explore the diverse range of products, learn about the creative process, and easily make purchases through a seamless e-commerce experience. The site also includes a blog where Tomi shares insights into their creative journey, upcoming projects, and tips for fellow stitch enthusiasts.',
-      tags: ['NextJs', 'React'],
-      image: '/projects/Stitches_-_Polo_Park.webp', // 👈 ADD IMAGE PATH
-      link: 'https://tomistitches.vercel.app/', // 👈 ADD LIVE LINK
+      title: 'Stitches Company Website',
+      category: 'E-commerce',
+      client: 'Tomi Stitches',
+      description: 'Vibrant e-commerce platform showcasing artistry and craftsmanship — portfolio, seamless checkout, and blog for Tomi Stitches.',
+      tags: ['Next.js', 'React'],
+      image: '/projects/Stitches_-_Polo_Park.webp',
+      link: 'https://tomistitches.vercel.app/',
       metrics: { revenue: '+270%', orders: '1020+', rating: '4.9/5' },
-      year: '2025'
+      year: '2025',
     },
     {
-      title: 'real estate company website',
-      category: 'GText Real Estate',
+      title: 'Real Estate Platform',
+      category: 'Web Development',
       client: 'GText Real Estate',
-      description: 'GText Real Estate is a dynamic and innovative real estate platform built to highlight premium developments, showcase investment opportunities, and connect clients with the trusted expertise of the GText brand.',
-      tags: ['NextJs', 'React'],
-      image: '/projects/unnamed.webp', // 👈 ADD IMAGE PATH
-      link: 'https://gtext-kappa.vercel.app/', // 👈 ADD LIVE LINK
+      description: 'A dynamic real estate platform highlighting premium developments, investment opportunities, and the trusted GText brand.',
+      tags: ['Next.js', 'React'],
+      image: '/projects/unnamed.webp',
+      link: 'https://gtext-kappa.vercel.app/',
       metrics: { revenue: '+270%', orders: '1020+', rating: '4.9/5' },
-      year: '2025'
+      year: '2025',
     },
-    // Add more projects...
   ]
 
   const categories = ['All', 'Web Development', 'E-commerce', 'Web Application', 'E-learning']
-
-  const filteredProjects = activeFilter === 'All' 
-    ? projects 
+  const filteredProjects = activeFilter === 'All'
+    ? projects
     : projects.filter(p => p.category === activeFilter)
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-24 bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute w-96 h-96 bg-orange-500 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
-          <div className="absolute w-96 h-96 bg-amber-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        </div>
+      {/* ══ HERO ════════════════════════════════════════════════════════════════ */}
+      <section className="relative pt-32 pb-24 overflow-hidden" style={{ background: C.bg1 }}>
+        <div className="absolute rounded-full blur-3xl pointer-events-none animate-pulse"
+          style={{ width: 700, height: 700, top: -200, left: -150, background: `radial-gradient(circle, ${C.glowV}, transparent 70%)` }} />
+        <div className="absolute rounded-full blur-3xl pointer-events-none animate-pulse"
+          style={{ width: 500, height: 500, bottom: -100, right: -80, background: `radial-gradient(circle, ${C.glowG}, transparent 70%)`, animationDelay: '2s' }} />
+        <div className="absolute inset-0 pointer-events-none" style={{
+          opacity: 0.02,
+          backgroundImage: `linear-gradient(${C.gold} 1px, transparent 1px), linear-gradient(90deg, ${C.gold} 1px, transparent 1px)`,
+          backgroundSize: '100px 100px',
+        }} />
 
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px)',
-          backgroundSize: '50px 50px'
-        }}></div>
-        
         <div className="container-custom relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-5 py-3 rounded-full border border-orange-500/30 mb-8">
-              <FaAward className="text-orange-400" />
-              <span className="text-sm font-semibold tracking-wide">100+ Successful Projects</span>
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-8"
+              style={{ background: 'rgba(201,168,76,0.08)', border: `1px solid ${C.border}` }}>
+              <FaAward size={12} style={{ color: C.gold }} />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em]"
+                style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+                100+ Successful Projects
+              </span>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-tight">
-              Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-orange-500">Award-Winning</span> Work
+            <h1 style={{
+              fontFamily: 'var(--font-display)',
+              color: C.txtPri,
+              fontSize: 'clamp(2.8rem,6vw,5rem)',
+              fontWeight: 700,
+              lineHeight: 1.08,
+              letterSpacing: '-0.025em',
+            }}>
+              Our{' '}
+              <span style={{ color: C.gold }}>Award&#8209;Winning</span>
+              {' '}Work
             </h1>
-            
-            <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+
+            <p className="mt-6 text-lg leading-relaxed max-w-xl mx-auto"
+              style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
               Real projects. Real results. See how we've transformed businesses across Nigeria with cutting-edge web solutions.
             </p>
 
-            <div className="grid grid-cols-3 gap-8 mt-12 max-w-2xl mx-auto">
-              <div>
-                <div className="text-4xl font-black text-orange-400 mb-2">100+</div>
-                <div className="text-sm text-gray-300">Projects</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black text-orange-400 mb-2">50+</div>
-                <div className="text-sm text-gray-300">Clients</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black text-orange-400 mb-2">98%</div>
-                <div className="text-sm text-gray-300">Success Rate</div>
-              </div>
+            <div className="grid grid-cols-3 gap-8 mt-12 max-w-sm mx-auto pt-8"
+              style={{ borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+              {[{ v: '100+', l: 'Projects' }, { v: '50+', l: 'Clients' }, { v: '98%', l: 'Success Rate' }].map((s, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-3xl font-bold mb-1"
+                    style={{ fontFamily: 'var(--font-display)', color: C.gold, letterSpacing: '-0.02em' }}>
+                    {s.v}
+                  </div>
+                  <div className="text-xs uppercase tracking-[0.2em]"
+                    style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+                    {s.l}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+
+        <div className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+          style={{ background: `linear-gradient(to bottom, transparent, ${C.bg2})` }} />
       </section>
 
-      {/* Filter Section */}
-      <section className="sticky top-0 z-40 py-6 bg-white/90 backdrop-blur-lg border-b border-gray-200 shadow-sm">
+      {/* ══ FILTER BAR ══════════════════════════════════════════════════════════ */}
+      <div className="sticky top-0 z-40 py-4"
+        style={{
+          background: 'rgba(10,5,26,0.95)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: `1px solid ${C.border}`,
+        }}>
         <div className="container-custom">
-          <div className="flex flex-wrap justify-center gap-3">
-            {categories.map((category) => (
+          <div className="flex flex-wrap justify-center gap-2">
+            {categories.map((cat) => (
               <button
-                key={category}
-                onClick={() => setActiveFilter(category)}
-                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 ${
-                  activeFilter === category
-                    ? 'bg-gradient-to-r from-orange-500 to-amber-600 text-white shadow-lg shadow-orange-500/30 scale-105'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200 hover:scale-105'
-                }`}
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className="px-5 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300"
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  background: activeFilter === cat
+                    ? `linear-gradient(135deg, ${C.gold}, ${C.goldLt})`
+                    : 'rgba(255,255,255,0.04)',
+                  color: activeFilter === cat ? C.bg0 : C.txtSec,
+                  border: activeFilter === cat ? '1px solid transparent' : `1px solid ${C.border}`,
+                  letterSpacing: '0.08em',
+                  transform: activeFilter === cat ? 'scale(1.04)' : 'scale(1)',
+                }}
               >
-                {category}
+                {cat}
               </button>
             ))}
           </div>
-          
-          <div className="text-center mt-4">
-            <span className="text-sm text-gray-600">
-              Showing <strong className="text-orange-600">{filteredProjects.length}</strong> {filteredProjects.length === 1 ? 'project' : 'projects'}
-            </span>
-          </div>
+          <p className="text-center mt-3 text-xs"
+            style={{ fontFamily: 'var(--font-body)', color: C.txtDim }}>
+            Showing{' '}
+            <span style={{ color: C.gold, fontWeight: 600 }}>{filteredProjects.length}</span>{' '}
+            {filteredProjects.length === 1 ? 'project' : 'projects'}
+          </p>
         </div>
-      </section>
+      </div>
 
-      {/* Portfolio Grid with REAL IMAGES */}
-      <section className="section-padding bg-gradient-to-br from-gray-50 to-white">
-        <div className="container-custom">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
+      {/* ══ PROJECTS GRID ═══════════════════════════════════════════════════════ */}
+      <section className="section-padding relative overflow-hidden" style={{ background: C.bg2 }}>
+        <div className="absolute top-0 right-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+          style={{ background: `radial-gradient(circle, ${C.glowV}, transparent 70%)` }} />
+        <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full blur-3xl pointer-events-none"
+          style={{ background: `radial-gradient(circle, ${C.glowG}, transparent 70%)` }} />
+
+        <div className="container-custom relative z-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project, i) => (
               <div
-                key={index}
-                className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border border-gray-100"
+                key={i}
+                className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2"
+                style={{ background: 'rgba(255,255,255,0.03)', border: `1px solid ${C.border}` }}
               >
-                {/* 👇 PROJECT IMAGE (Clickable) */}
-                <a 
-                  href={project.link} 
-                  target="_blank" 
+                {/* Image */}
+                <a
+                  href={project.link}
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="relative block h-64 overflow-hidden bg-gray-200"
+                  className="relative block h-56 overflow-hidden flex-shrink-0"
+                  style={{ background: C.bg0 }}
                 >
-                  {/* Real Image */}
                   <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-orange-500/80 to-amber-600/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="text-white text-center space-y-3">
-                      <FaExternalLinkAlt className="w-12 h-12 mx-auto" />
-                      <div className="text-sm font-semibold">Visit Live Site</div>
+
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{ background: 'rgba(5,3,13,0.78)', backdropFilter: 'blur(4px)' }}>
+                    <div className="text-center space-y-2">
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto"
+                        style={{ background: `linear-gradient(135deg, ${C.gold}, ${C.goldLt})` }}>
+                        <FaExternalLinkAlt size={13} style={{ color: C.bg0 }} />
+                      </div>
+                      <p className="text-xs font-semibold uppercase tracking-wider"
+                        style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+                        Visit Live Site
+                      </p>
                     </div>
                   </div>
 
-                  {/* Year Badge */}
-                  <div className="absolute top-4 right-4 bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-white text-xs font-bold">
+                  {/* Year badge */}
+                  <div className="absolute top-3 right-3 px-2.5 py-1 rounded-md text-xs font-semibold"
+                    style={{ fontFamily: 'var(--font-body)', background: 'rgba(5,3,13,0.75)', backdropFilter: 'blur(8px)', color: C.gold, border: `1px solid ${C.border}` }}>
                     {project.year}
                   </div>
                 </a>
 
-                {/* Project Details */}
-                <div className="p-6">
+                {/* Details */}
+                <div className="flex flex-col flex-1 p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm text-orange-600 font-bold uppercase tracking-wide">
+                    <span className="text-xs font-semibold uppercase tracking-[0.15em]"
+                      style={{ fontFamily: 'var(--font-body)', color: C.gold }}>
                       {project.category}
                     </span>
-                    <span className="text-xs text-gray-500">
+                    <span className="text-xs"
+                      style={{ fontFamily: 'var(--font-body)', color: C.txtDim }}>
                       {project.client}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-black mb-3 text-gray-900 group-hover:text-orange-600 transition-colors">
+                  <h3 className="text-xl font-semibold mb-2"
+                    style={{ fontFamily: 'var(--font-display)', color: C.txtPri, letterSpacing: '-0.01em' }}>
                     {project.title}
                   </h3>
-                  
-                  <p className="text-gray-600 mb-4 leading-relaxed line-clamp-3">
+
+                  <p className="text-sm leading-relaxed mb-5 line-clamp-3 flex-1"
+                    style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
                     {project.description}
                   </p>
 
                   {/* Metrics */}
-                  <div className="grid grid-cols-3 gap-2 mb-4 p-4 bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl border border-orange-100">
+                  <div className="grid grid-cols-3 gap-2 mb-4 p-4 rounded-xl"
+                    style={{ background: 'rgba(201,168,76,0.05)', border: `1px solid ${C.border}` }}>
                     {Object.entries(project.metrics).map(([key, value], idx) => (
                       <div key={idx} className="text-center">
-                        <div className="text-lg font-black text-orange-600">{value}</div>
-                        <div className="text-xs text-gray-600 capitalize">{key}</div>
+                        <div className="text-base font-bold"
+                          style={{ fontFamily: 'var(--font-display)', color: C.gold, letterSpacing: '-0.01em' }}>
+                          {value}
+                        </div>
+                        <div className="text-xs capitalize mt-0.5"
+                          style={{ fontFamily: 'var(--font-body)', color: C.txtDim }}>
+                          {key}
+                        </div>
                       </div>
                     ))}
                   </div>
 
                   {/* Tags */}
-                  <div className="flex flex-wrap gap-2 mb-5">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-semibold hover:bg-orange-100 hover:text-orange-700 transition-colors"
-                      >
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {project.tags.map((tag, ti) => (
+                      <span key={ti}
+                        className="px-2.5 py-1 rounded-md text-xs font-medium"
+                        style={{ fontFamily: 'var(--font-body)', background: 'rgba(201,168,76,0.07)', color: C.txtSec, border: `1px solid ${C.border}` }}>
                         {tag}
                       </span>
                     ))}
                   </div>
 
-                  {/* CTA Button */}
+                  {/* CTA */}
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block w-full bg-gradient-to-r from-orange-500 to-amber-600 text-white px-6 py-4 rounded-xl font-bold hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-center group/btn"
+                    className="group/btn flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg text-xs font-semibold uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
+                    style={{
+                      fontFamily: 'var(--font-body)',
+                      background: `linear-gradient(135deg, ${C.gold}, ${C.goldLt})`,
+                      color: C.bg0,
+                      letterSpacing: '0.06em',
+                    }}
                   >
-                    <span className="flex items-center justify-center space-x-2">
-                      <span>Visit Live Site</span>
-                      <FaArrowRight className="group-hover/btn:translate-x-1 transition-transform" />
-                    </span>
+                    Visit Live Site
+                    <FaArrowRight size={9} className="group-hover/btn:translate-x-0.5 transition-transform" />
                   </a>
                 </div>
               </div>
@@ -955,56 +320,74 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Rest of your sections... */}
-      <section className="section-padding bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute w-96 h-96 bg-orange-500 rounded-full blur-3xl top-0 left-0 animate-pulse"></div>
-          <div className="absolute w-96 h-96 bg-amber-500 rounded-full blur-3xl bottom-0 right-0 animate-pulse" style={{ animationDelay: '1s' }}></div>
+      {/* ══ CTA ═════════════════════════════════════════════════════════════════ */}
+      <section className="section-padding relative overflow-hidden" style={{ background: C.bg0 }}>
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute w-full h-px top-0"
+            style={{ background: `linear-gradient(90deg, transparent, ${C.gold}55, transparent)` }} />
+          <div className="absolute rounded-full blur-3xl animate-pulse"
+            style={{ width: 700, height: 700, top: '50%', left: '50%', transform: 'translate(-50%,-50%)', background: `radial-gradient(circle, ${C.glowV}, transparent 70%)` }} />
         </div>
-        
+
         <div className="container-custom text-center relative z-10">
-          <div className="max-w-4xl mx-auto">
-            <div className="inline-flex items-center space-x-2 bg-orange-500/20 backdrop-blur-sm px-5 py-3 rounded-full border border-orange-500/30 mb-8">
-              <FaRocket className="text-orange-400" />
-              <span className="text-sm font-semibold tracking-wide">Ready to Join Our Success Stories?</span>
+          <div className="max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full mb-8"
+              style={{ background: 'rgba(201,168,76,0.08)', border: `1px solid ${C.border}` }}>
+              <FaRocket size={11} style={{ color: C.gold }} />
+              <span className="text-xs font-semibold uppercase tracking-[0.2em]"
+                style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+                Ready to Join Our Success Stories?
+              </span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
-              Want to See Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-300">Project Here?</span>
+            <h2 style={{ fontFamily: 'var(--font-display)', color: C.txtPri, fontSize: 'clamp(2.4rem,5vw,4rem)', fontWeight: 700, letterSpacing: '-0.025em', lineHeight: 1.08 }}>
+              Want to See Your{' '}
+              <span style={{ color: C.gold }}>Project Here?</span>
             </h2>
-            
-            <p className="text-2xl text-gray-200 mb-12 leading-relaxed">
+
+            <p className="mt-5 mb-12 text-base leading-relaxed max-w-xl mx-auto"
+              style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
               Let's create something extraordinary together. Get started with a free consultation and custom quote today.
             </p>
-            
-            <div className="flex flex-wrap justify-center gap-6">
-              <Link 
-                href="/contact" 
-                className="group px-10 py-5 bg-white text-orange-600 font-black text-lg rounded-xl shadow-2xl hover:shadow-white/20 hover:scale-110 transition-all duration-300"
-              >
-                <span className="flex items-center space-x-3">
-                  <span>Start Your Project</span>
-                  <FaArrowRight className="group-hover:translate-x-2 transition-transform" />
-                </span>
+
+            <div className="flex flex-wrap justify-center gap-5">
+              <Link href="/contact"
+                className="group inline-flex items-center gap-3 px-10 py-5 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  background: `linear-gradient(135deg, ${C.gold}, ${C.goldLt})`,
+                  color: C.bg0,
+                  boxShadow: `0 8px 40px rgba(201,168,76,0.28)`,
+                  letterSpacing: '0.025em',
+                }}>
+                Start Your Project
+                <FaArrowRight size={12} className="group-hover:translate-x-1 transition-transform" />
               </Link>
-              
-              <Link 
-                href="/services" 
-                className="px-10 py-5 bg-white/10 backdrop-blur-md text-white font-black text-lg rounded-xl border-2 border-white/30 hover:bg-white/20 hover:border-white hover:scale-110 transition-all duration-300"
-              >
+
+              <Link href="/services"
+                className="inline-flex items-center px-10 py-5 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-[1.04]"
+                style={{
+                  fontFamily: 'var(--font-body)',
+                  background: 'rgba(255,255,255,0.04)',
+                  color: C.txtPri,
+                  border: '1px solid rgba(255,255,255,0.12)',
+                  letterSpacing: '0.025em',
+                }}>
                 View Our Services
               </Link>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── Fonts ── */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+        :root {
+          --font-display: 'Cormorant Garamond', Georgia, serif;
+          --font-body:    'DM Sans', system-ui, sans-serif;
+        }
+      `}</style>
     </>
   )
 }
-
-
-
-
-
-
-

@@ -3,94 +3,134 @@
 import Link from 'next/link'
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaFacebook, FaTwitter, FaLinkedin, FaInstagram, FaArrowRight, FaArrowUp } from 'react-icons/fa'
 
+// ─── Same design tokens as the rest of the site ──────────────────────────────
+const C = {
+  bg0:    '#05030D',
+  bg1:    '#0C0720',
+  bg2:    '#110A2A',
+  txtPri: '#EAE6F0',
+  txtSec: '#9E96B0',
+  txtDim: '#5C5470',
+  gold:   '#C9A84C',
+  goldLt: '#E8D5A3',
+  border: 'rgba(201,168,76,0.15)',
+  glowV:  'rgba(88,28,220,0.10)',
+  glowG:  'rgba(201,168,76,0.08)',
+}
+// ─────────────────────────────────────────────────────────────────────────────
+
 export default function Footer() {
   const currentYear = new Date().getFullYear()
 
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    })
-  }
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+
+  const quickLinks = [
+    { name: 'About Us',   href: '/about' },
+    { name: 'Services',   href: '/services' },
+    { name: 'Portfolio',  href: '/portfolio' },
+    { name: 'Blog',       href: '/blog' },
+    { name: 'Contact',    href: '/contact' },
+  ]
+
+  const services = [
+    'Web Development',
+    'E-commerce Solutions',
+    'Mobile Development',
+    'SEO Optimisation',
+    'Digital Marketing',
+  ]
+
+  const socials = [
+    { icon: <FaFacebook size={14} />,  href: '#',                                                     label: 'Facebook' },
+    { icon: <FaTwitter size={14} />,   href: 'https://x.com/Olaniyi223',                              label: 'Twitter' },
+    { icon: <FaLinkedin size={14} />,  href: 'https://www.linkedin.com/in/oloyede-olaniyi-098509371/', label: 'LinkedIn' },
+    { icon: <FaInstagram size={14} />, href: '#',                                                     label: 'Instagram' },
+  ]
 
   return (
-    <footer className="relative bg-slate-950 text-white overflow-hidden">
-      {/* Subtle background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950"></div>
-      
-      {/* Subtle glow effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"></div>
+    <footer className="relative overflow-hidden" style={{ background: C.bg0, color: C.txtPri }}>
 
-      {/* Main Footer Content */}
-      <div className="container-custom py-12 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
-          {/* About */}
-          <div>
-            <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-black text-lg">O</span>
+      {/* ── Ambient glows ── */}
+      <div className="absolute top-0 left-0 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+        style={{ background: `radial-gradient(circle, ${C.glowV}, transparent 70%)` }} />
+      <div className="absolute bottom-0 right-0 w-72 h-72 rounded-full blur-3xl pointer-events-none"
+        style={{ background: `radial-gradient(circle, ${C.glowG}, transparent 70%)` }} />
+
+      {/* ── Top gold hairline ── */}
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: `linear-gradient(90deg, transparent, ${C.gold}60, transparent)` }} />
+
+      {/* ── Main content ──────────────────────────────────────────────────────── */}
+      <div className="container-custom py-16 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14">
+
+          {/* ── Col 1: Brand + social ── */}
+          <div className="space-y-5">
+            {/* Logo mark */}
+            <div className="flex items-center gap-3">
+              <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0"
+                style={{ background: 'rgba(201,168,76,0.12)', border: `1px solid ${C.border}` }}>
+                <span className="font-black text-base" style={{ fontFamily: 'var(--font-display)', color: C.gold }}>O</span>
               </div>
-              <span className="font-display font-bold text-lg">O'LOY GLOBAL</span>
+              <span className="font-bold" style={{ fontFamily: 'var(--font-display)', color: C.txtPri, fontSize: '1.15rem', letterSpacing: '-0.02em' }}>
+                O'LOY GLOBAL
+              </span>
             </div>
-            
-            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
-              Nigeria's leading web development agency building high-performance websites.
+
+            <p className="text-sm leading-relaxed" style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+              Nigeria's leading web development agency building high-performance digital experiences that convert visitors into customers.
             </p>
 
-            {/* Social Media */}
-            <div className="flex space-x-2">
-              <a 
-                href="#" 
-                className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-all duration-300 group"
-                aria-label="Facebook"
-              >
-                <FaFacebook className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a 
-                href="https://x.com/Olaniyi223" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-all duration-300 group"
-                aria-label="Twitter"
-              >
-                <FaTwitter className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a 
-                href="https://www.linkedin.com/in/oloyede-olaniyi-098509371/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-all duration-300 group"
-                aria-label="LinkedIn"
-              >
-                <FaLinkedin className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
-              <a 
-                href="#" 
-                className="w-9 h-9 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-orange-500 transition-all duration-300 group"
-                aria-label="Instagram"
-              >
-                <FaInstagram className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
-              </a>
+            {/* Social icons */}
+            <div className="flex gap-2 pt-1">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target={s.href !== '#' ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  aria-label={s.label}
+                  className="w-9 h-9 rounded-lg flex items-center justify-center transition-all duration-300 group"
+                  style={{ background: 'rgba(255,255,255,0.04)', border: `1px solid ${C.border}` }}
+                  onMouseEnter={e => {
+                    e.currentTarget.style.background = 'rgba(201,168,76,0.15)'
+                    e.currentTarget.style.borderColor = C.gold
+                  }}
+                  onMouseLeave={e => {
+                    e.currentTarget.style.background = 'rgba(255,255,255,0.04)'
+                    e.currentTarget.style.borderColor = C.border
+                  }}
+                >
+                  <span style={{ color: C.txtDim, transition: 'color 0.2s' }}
+                    className="group-hover:text-[#C9A84C] transition-colors duration-200">
+                    {s.icon}
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Quick Links */}
+          {/* ── Col 2: Quick links ── */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-orange-500">Quick Links</h4>
-            <ul className="space-y-2">
-              {[
-                { name: 'About Us', href: '/about' },
-                { name: 'Services', href: '/services' },
-                { name: 'Portfolio', href: '/portfolio' },
-                { name: 'Blog', href: '/blog' },
-                { name: 'Contact', href: '/contact' },
-              ].map((link, index) => (
-                <li key={index}>
-                  <Link 
-                    href={link.href} 
-                    className="text-gray-400 hover:text-orange-500 transition-colors text-sm inline-flex items-center group"
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-5"
+              style={{ fontFamily: 'var(--font-body)', color: C.gold }}>
+              Quick Links
+            </p>
+            <ul className="space-y-2.5">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="inline-flex items-center gap-2 text-sm transition-all duration-200 group"
+                    style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}
+                    onMouseEnter={e => (e.currentTarget.style.color = C.txtPri)}
+                    onMouseLeave={e => (e.currentTarget.style.color = C.txtSec)}
                   >
-                    <FaArrowRight className="w-2 h-2 mr-2 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all text-orange-500" />
+                    <FaArrowRight
+                      size={8}
+                      className="opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200 flex-shrink-0"
+                      style={{ color: C.gold }}
+                    />
                     {link.name}
                   </Link>
                 </li>
@@ -98,99 +138,149 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
+          {/* ── Col 3: Services ── */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-orange-500">Services</h4>
-            <ul className="space-y-2">
-              {[
-                'Web Development',
-                'E-commerce Solutions',
-                'Mobile Development',
-                'SEO Optimization',
-                'Digital Marketing',
-              ].map((service, index) => (
-                <li key={index} className="text-gray-400 text-sm hover:text-orange-500 transition-colors cursor-pointer">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-5"
+              style={{ fontFamily: 'var(--font-body)', color: C.gold }}>
+              Services
+            </p>
+            <ul className="space-y-2.5">
+              {services.map((service) => (
+                <li
+                  key={service}
+                  className="text-sm transition-colors duration-200 cursor-default"
+                  style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}
+                  onMouseEnter={e => (e.currentTarget.style.color = C.txtPri)}
+                  onMouseLeave={e => (e.currentTarget.style.color = C.txtSec)}
+                >
                   {service}
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact */}
+          {/* ── Col 4: Contact ── */}
           <div>
-            <h4 className="font-bold text-sm uppercase tracking-wider mb-4 text-orange-500">Contact</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start space-x-3">
-                <FaMapMarkerAlt className="text-orange-500 mt-1 flex-shrink-0 w-4 h-4" />
-                <span className="text-gray-400 text-sm">Lagos & Abuja, Nigeria</span>
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] mb-5"
+              style={{ fontFamily: 'var(--font-body)', color: C.gold }}>
+              Contact
+            </p>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <FaMapMarkerAlt size={12} style={{ color: C.gold, marginTop: 3, flexShrink: 0 }} />
+                <span className="text-sm" style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+                  Lagos &amp; Abuja, Nigeria
+                </span>
               </li>
               <li>
-                <a href="tel:+2348069336270" className="flex items-start space-x-3 hover:text-orange-500 transition-colors group">
-                  <FaPhone className="text-orange-500 mt-1 flex-shrink-0 w-4 h-4" />
-                  <span className="text-gray-400 text-sm group-hover:text-orange-500">+234 806 933 6270</span>
+                <a
+                  href="tel:+2348069336270"
+                  className="flex items-start gap-3 group transition-colors duration-200"
+                  onMouseEnter={e => (e.currentTarget.style.color = C.txtPri)}
+                  onMouseLeave={e => (e.currentTarget.style.color = '')}
+                >
+                  <FaPhone size={11} style={{ color: C.gold, marginTop: 3, flexShrink: 0 }} />
+                  <span className="text-sm" style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
+                    +234 806 933 6270
+                  </span>
                 </a>
               </li>
               <li>
-                <a href="mailto:oloyedeolaniyi223@gmail.com" className="flex items-start space-x-3 hover:text-orange-500 transition-colors group">
-                  <FaEnvelope className="text-orange-500 mt-1 flex-shrink-0 w-4 h-4" />
-                  <span className="text-gray-400 text-sm group-hover:text-orange-500 break-all">
+                <a
+                  href="mailto:oloyedeolaniyi223@gmail.com"
+                  className="flex items-start gap-3 group transition-colors duration-200"
+                  onMouseEnter={e => (e.currentTarget.style.color = C.txtPri)}
+                  onMouseLeave={e => (e.currentTarget.style.color = '')}
+                >
+                  <FaEnvelope size={11} style={{ color: C.gold, marginTop: 3, flexShrink: 0 }} />
+                  <span className="text-sm break-all" style={{ fontFamily: 'var(--font-body)', color: C.txtSec }}>
                     oloyedeolaniyi223@gmail.com
                   </span>
                 </a>
               </li>
             </ul>
 
-            {/* Availability Badge */}
-            <div className="mt-4 inline-flex items-center space-x-2 bg-green-500/10 px-3 py-1.5 rounded-full border border-green-500/30">
-              <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-green-400 text-xs font-semibold">Available</span>
+            {/* Availability badge */}
+            <div className="mt-6 inline-flex items-center gap-2 px-3 py-1.5 rounded-full"
+              style={{ background: 'rgba(74,222,128,0.06)', border: '1px solid rgba(74,222,128,0.2)' }}>
+              <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: '#4ade80', boxShadow: '0 0 6px #4ade80' }} />
+              <span className="text-xs font-semibold" style={{ fontFamily: 'var(--font-body)', color: '#4ade80' }}>
+                Available for Projects
+              </span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-slate-800 relative z-10">
+      {/* ── Divider ── */}
+      <div className="relative z-10" style={{ borderTop: '1px solid rgba(201,168,76,0.10)' }}>
         <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+
             {/* Copyright */}
-            <p className="text-gray-500 text-sm text-center md:text-left">
-              © {currentYear} <span className="text-orange-500 font-semibold">O'LOY GLOBAL</span>. All rights reserved.
+            <p className="text-xs text-center md:text-left"
+              style={{ fontFamily: 'var(--font-body)', color: C.txtDim }}>
+              © {currentYear}{' '}
+              <span className="font-semibold" style={{ color: C.gold }}>O'LOY GLOBAL</span>
+              . All rights reserved.
             </p>
 
-            {/* Legal Links */}
-            <div className="flex items-center space-x-4 text-sm">
-              <Link href="#" className="text-gray-500 hover:text-orange-500 transition-colors">
+            {/* Legal + scroll top */}
+            <div className="flex items-center gap-5 text-xs" style={{ fontFamily: 'var(--font-body)' }}>
+              <Link href="#"
+                style={{ color: C.txtDim }}
+                onMouseEnter={e => (e.currentTarget.style.color = C.txtSec)}
+                onMouseLeave={e => (e.currentTarget.style.color = C.txtDim)}>
                 Privacy
               </Link>
-              <span className="text-gray-700">•</span>
-              <Link href="#" className="text-gray-500 hover:text-orange-500 transition-colors">
+              <span style={{ color: C.txtDim, opacity: 0.3 }}>·</span>
+              <Link href="#"
+                style={{ color: C.txtDim }}
+                onMouseEnter={e => (e.currentTarget.style.color = C.txtSec)}
+                onMouseLeave={e => (e.currentTarget.style.color = C.txtDim)}>
                 Terms
               </Link>
-              <span className="text-gray-700">•</span>
-              <button 
+              <span style={{ color: C.txtDim, opacity: 0.3 }}>·</span>
+              <button
                 onClick={scrollToTop}
-                className="text-gray-500 hover:text-orange-500 transition-colors flex items-center space-x-1 group"
-              >
+                className="flex items-center gap-1.5 transition-colors duration-200 group"
+                style={{ color: C.txtDim }}
+                onMouseEnter={e => (e.currentTarget.style.color = C.gold)}
+                onMouseLeave={e => (e.currentTarget.style.color = C.txtDim)}>
                 <span>Top</span>
-                <FaArrowUp className="w-3 h-3 transform group-hover:-translate-y-0.5 transition-transform" />
+                <FaArrowUp size={9} className="group-hover:-translate-y-0.5 transition-transform duration-200" />
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Scroll to Top Button - Fixed Position */}
+      {/* ── Bottom accent line ── */}
+      <div className="h-px relative z-10"
+        style={{ background: `linear-gradient(90deg, transparent, ${C.gold}40, transparent)` }} />
+
+      {/* ── Scroll to top FAB ── */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 left-6 z-40 w-12 h-12 bg-gradient-to-br from-orange-500 to-amber-600 text-white rounded-full shadow-2xl hover:shadow-orange-500/50 hover:scale-110 transition-all duration-300 flex items-center justify-center group"
         aria-label="Scroll to top"
+        className="fixed bottom-6 left-6 z-40 w-11 h-11 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+        style={{
+          background: `linear-gradient(135deg, ${C.gold}, ${C.goldLt})`,
+          color: C.bg0,
+          boxShadow: `0 4px 20px rgba(201,168,76,0.35)`,
+        }}
       >
-        <FaArrowUp className="w-5 h-5 group-hover:-translate-y-0.5 transition-transform" />
+        <FaArrowUp size={13} className="group-hover:-translate-y-0.5 transition-transform duration-200" />
       </button>
 
-      {/* Decorative Bottom Line */}
-      <div className="h-0.5 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50"></div>
+      {/* ── Font vars (in case footer renders standalone) ── */}
+      <style jsx global>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&display=swap');
+        :root {
+          --font-display: 'Cormorant Garamond', Georgia, serif;
+          --font-body:    'DM Sans', system-ui, sans-serif;
+        }
+      `}</style>
     </footer>
   )
 }
