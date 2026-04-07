@@ -577,7 +577,7 @@ export default function Home() {
               <a href="tel:+2348100098339"
                 className="inline-flex items-center px-10 py-5 rounded-lg font-semibold text-base transition-all duration-300 hover:scale-[1.03]"
                 style={{ fontFamily: 'var(--font-body)', background: 'rgba(255,255,255,0.04)', color: C.txtPri, border: '1px solid rgba(255,255,255,0.12)', letterSpacing: '0.025em' }}>
-                📞 Call: 08100098339
+                📞 Call: 08069336270
               </a>
             </div>
             <div className="grid md:grid-cols-3 gap-8 pt-10"
