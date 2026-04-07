@@ -1,3 +1,5 @@
+/* This JavaScript code snippet is a service worker script that handles caching strategies for a web
+application. Here's a breakdown of what each part of the code does: */
 const CACHE_NAME = 'oloy-global-v1';
 const urlsToCache = [
   '/',
