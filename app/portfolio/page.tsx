@@ -83,6 +83,17 @@ export default function Portfolio() {
       metrics: { revenue: '+270%', orders: '1020+', rating: '4.9/5' },
       year: '2025',
     },
+    {
+      title: 'Social Media Growth Platform',
+      category: 'Web Development',
+      client: 'Cociani',
+      description: 'A high-converting social media growth platform offering Instagram, Twitter, and TikTok engagement services with fast delivery and real-time tracking.',
+      tags: ['Next.js', 'React'],
+      image: '/projects/social-media-growth.webp',
+      link: 'https://the-cociani.com/',
+      metrics: { revenue: '+320%', orders: '5K+', rating: '4.8/5' },
+      year: '2025',
+    }
   ]
 
   const categories = ['All', 'Web Development', 'E-commerce', 'Web Application', 'E-learning']
